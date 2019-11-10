@@ -1,12 +1,18 @@
+import yaml
+with open(r'mlp/config.yml') as file:
+    cfg = yaml.load(file, Loader=yaml.FullLoader)
+print("\nLoaded config file.")
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import cross_val_score,train_test_split
-from sklearn.linear_model import LinearRegression,LassoCV,Lasso,Ridge,RidgeCV
-from sklearn.ensemble import RandomForestRegressor
-from lightgbm import LGBMRegressor
+if cfg['models']['LinearRegression']:
+    from sklearn.linear_model import LinearRegression
+if cfg['models']['RandomForestRegressor']:
+    from sklearn.ensemble import RandomForestRegressor
+if cfg['models']['LGBMRegressor']:
+    from lightgbm import LGBMRegressor
 from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
-import sys
-import yaml
 
 def rounding_figures(number):
     if cfg['eval_metric']['to_round']:
@@ -28,10 +34,6 @@ def generate_eval_metrics(estimator,target,predictor):
         print(cfg['eval_metric']['cv_scoring'],'CV:',rounding_figures(np.average(cross_val_score(model,X_train,y_train,cv=cfg['eval_metric']['cv_folds']))))
 
 ## Loading url
-with open(r'config.yml') as file:
-    cfg = yaml.load(file, Loader=yaml.FullLoader)
-print("Loaded config file.")
-
 data = pd.read_csv(cfg['url'])
 print('Columns:',list(data.columns))
 

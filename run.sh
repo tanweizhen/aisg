@@ -1,1 +1,1 @@
-python /mlp/ml_script.py
+python mlp/ml_script.py

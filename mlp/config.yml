@@ -4,8 +4,8 @@ to_drop: True
 drop_list: ['snow_1h','rain_1h','clouds_all','weather_description']
 
 train_test_split:
-  split_by_time: True
-  test_size: 0.2
+  split_by_time: False
+  test_size: 0.3
   random_state: 42
 
 eval_metric:
@@ -15,13 +15,13 @@ eval_metric:
   show_mse: True
   show_r2: True
   do_cv: True
-  cv_folds: 3
+  cv_folds: 5
   cv_scoring: r2_score
 
 models:
   LinearRegression: True
-  RandomForestRegressor: False
-  LGBMRegressor: True
+  RandomForestRegressor: True
+  LGBMRegressor: False
 
 LinearRegression:
   n_jobs: -1
