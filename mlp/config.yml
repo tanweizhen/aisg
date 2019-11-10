@@ -10,18 +10,18 @@ train_test_split:
 
 eval_metric:
   to_round: True
-  rounding_decimals: 5
+  rounding_decimals: 3
   show_mae: True
   show_mse: True
   show_r2: True
   do_cv: True
   cv_folds: 5
-  cv_scoring: r2_score
+  cv_scoring: 'r2_score'
 
 models:
   LinearRegression: True
-  RandomForestRegressor: True
-  LGBMRegressor: False
+  RandomForestRegressor: False
+  LGBMRegressor: True
 
 LinearRegression:
   n_jobs: -1

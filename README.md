@@ -10,6 +10,16 @@ To keep this short, the pipeline works like this:
 5. splits dataframe into train-test sets (randomly or by time, test_size can be adjusted)
 6. trains the various models (only linear regression, random forest and lightgbm supported) and generates/prints relevant evaluation metrics (can be toggled, but only mae, r2, mse supported), and also cross validation scoring and folds.
 
+# Deployment
+
+This pipeline was tested and working on macOS on a blank python environment.
+
+#####Steps taken:
+1. conda create -n test_aisg python=3.6.8
+2. conda activate test_aisg
+3. pip install -r requirements.txt
+4. ./run.sh
+
 # Configuration
 
 The config file basically controls every aspect of the python script. I've opted to use yaml as it's much easier to read compared to json.
