@@ -14,7 +14,7 @@ To keep this short, the pipeline works like this:
 
 This pipeline was tested and working on macOS on a blank python environment.
 
-#####Steps taken:
+##### Steps taken:
 1. conda create -n test_aisg python=3.6.8
 2. conda activate test_aisg
 3. pip install -r requirements.txt
