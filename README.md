@@ -14,12 +14,17 @@ To keep this short, the pipeline works like this:
 
 The config file basically controls every aspect of the python script. I've opted to use yaml as it's much easier to read compared to json.
 
-#### url: the link we download and load the data from.
+#### url: 
+the link we download and load the data from.
+
 Example: https://aisgaiap.blob.core.windows.net/aiap5-assessment-data/traffic_data.csv
 
-#### to_drop: Boolean that determines whether we drop any columns.
+#### to_drop: 
+Boolean that determines whether we drop any columns.
 
-#### drop_list: A python list that determines columns we drop, if to_drop is set to True. 
+#### drop_list: 
+A python list that determines columns we drop, if to_drop is set to True. 
+
 Example: ['snow_1h','rain_1h','clouds_all','weather_description']
 
 #### train_test_split:
